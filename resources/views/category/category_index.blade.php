@@ -39,14 +39,7 @@
         <td>{{$category['updated_at']}}</td>
         
         <td class="pull-right"><a href="{{action('CategoryController@edit', $category['id'])}}" class="btn btn-warning">Edit</a></td>
-        <td>
-          <form action="{{action('CategoryController@destroy', $category['id'])}}" method="post">
-            @csrf
-            <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Delete</button>
-          </form>
-        </td>
-      </tr>
+        </tr>
       @endforeach
     </tbody>
   </table>

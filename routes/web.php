@@ -36,5 +36,6 @@ Route::resource('/category','CategoryController');
 Route::post('/store','CategoryController@store');
 
 Route::resource('/crime','CrimeController');
+Route::resource('/map','MapController');
 
 Route::post('/storeCrime','CrimeController@storeCrime');

@@ -12,13 +12,17 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <script src="{{ asset('js/jquery-2.2.4.min.js') }}" defer></script>
+    <script src="{{ asset('js/moment-with-locales.js') }}" defer></script>
+ <script src="{{ asset('js/bootstrap-datetimepicker.js') }}" defer></script>
+   
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -71,5 +75,9 @@
             @yield('content')
         </main>
     </div>
+    <script type="text/javascript">
+    $('#datetimepicker1').datetimepicker({format : "YYYY-MM-DD hh:mm:ss"});
+</script>
+
 </body>
 </html>

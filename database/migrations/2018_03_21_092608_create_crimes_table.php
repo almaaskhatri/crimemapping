@@ -19,6 +19,8 @@ class CreateCrimesTable extends Migration
             $table->datetime('crime_date_time');
              $table->string('description');
              $table->integer('category_id');
+             $table->integer('longitude');
+             $table->integer('latitude');
              $table->string('filename');
             $table->timestamps();
         });

@@ -5,9 +5,16 @@ use App\Crime;
 use Illuminate\Http\Request;
 use App\Category;
 
+use Illuminate\Support\Facades\Validator;
+
 class CrimeController extends Controller
 {
     //
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function create()
     {
     	$categories = Category::all();
@@ -16,6 +23,23 @@ class CrimeController extends Controller
     }
     public function storeCrime(Request $request)
     {
+          $validator = Validator::make($request->all(), [
+         'address' => 'required|string|max:255',
+            'description' => 'required|string|max:500',
+ 'crime_date_time' => array('required'),
+ 'category_id' => 'required|integer|max:11',
+ 'filename' => 'required|mimes:jpeg,bmp,png,gif,svg,mp3,mp4,3gp',
+   'longitude' => 'required',
+ 'latitude' => 'required',
+  
+     ]);
+
+
+        if ($validator->fails()) {
+            return back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
     	 if($request->hasfile('filename'))
          {
             $file = $request->file('filename');
@@ -27,6 +51,9 @@ class CrimeController extends Controller
         $crime->description=$request->get('description');
         $crime->crime_date_time=$request->get('crime_date_time');
         $crime->category_id=$request->get('category_id');
+        
+        $crime->longitude=$request->get('longitude');
+        $crime->latitude=$request->get('latitude');
         $crime->filename=$name;
 
        $crime->save();
@@ -51,11 +78,29 @@ class CrimeController extends Controller
     }
     public function update(Request $request, $id)
     {
+          $validator = Validator::make($request->all(), [
+         'address' => 'required|string|max:255',
+            'description' => 'required|string|max:500',
+ 'crime_date_time' => array('required'),
+ 'category_id' => 'required|integer|max:11',
+  'longitude' => 'required',
+ 'latitude' => 'required',
+  
+     ]);
+
+
+        if ($validator->fails()) {
+            return back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $crime= Crime::find($id);
         $crime->address=$request->get('address');
         $crime->description=$request->get('description');
         $crime->crime_date_time=$request->get('crime_date_time');
         $crime->category_id=$request->get('category_id');
+        $crime->longitude=$request->get('longitude');
+        $crime->latitude=$request->get('latitude');
         $crime->save();
         return redirect('crime')->with('success','Information has been  updated');
     }

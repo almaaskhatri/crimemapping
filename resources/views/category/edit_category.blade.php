@@ -12,17 +12,17 @@
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
-            <label for="name">Name:</label>
+            <label for="name">Category Name:</label>
             <input type="text" class="form-control" name="name" value="{{$category->name}}">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="icon">Email</label>
-              <input type="text" class="form-control" name="icon" value="{{$category->icon}}">
-            </div>
-          </div>
+          
+             @if ($errors->has('name'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                           
+          
+        </div></div>
           <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">

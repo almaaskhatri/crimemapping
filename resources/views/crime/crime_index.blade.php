@@ -3,7 +3,7 @@
 @section('title', 'Create_Category')
 
 @section('content_header')
-    <h1>Category List</h1>
+    <h1>Crime List</h1>
 @stop
 
 @section('content')
@@ -51,6 +51,8 @@
           </form>
         </td>
       </tr>
+
+      
       @endforeach
     </tbody>
   </table>

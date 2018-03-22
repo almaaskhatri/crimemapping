@@ -12,15 +12,27 @@
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
-            <label for="category_name">Category Name:</label>
-            <input type="text" class="form-control" name="category_name">
+            <label for="name">Category Name:</label>
+            <input type="text" class="form-control" name="name">
+             @if ($errors->has('name'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                           
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
               <label for="icon">Icon:</label>
-              <input type="text" class="form-control" name="icon">
+              <input type="file" class="form-control" name="icon">
+                 @if ($errors->has('icon'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('icon') }}</strong>
+                                    </span>
+                                @endif
+      
             </div>
           </div>
         <div class="row">

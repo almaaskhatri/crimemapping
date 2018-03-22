@@ -3,6 +3,11 @@
 @section('adminlte_css')
     <link rel="stylesheet"
           href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'blue') . '.min.css')}} ">
+          <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<style type="text/css">
+  .invalid-feedback{
+    color: red
+  }</style>
     @stack('css')
     @yield('css')
 @stop
